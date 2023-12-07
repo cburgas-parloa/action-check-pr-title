@@ -58,7 +58,7 @@ steps:
 steps:
   - uses: Slashgear/action-check-pr-title@v4.3.0
     with:
-      warningOnly: "1"
+      warningOnly: "true"
 ```
 
 ## Author

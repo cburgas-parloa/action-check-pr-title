@@ -17,7 +17,7 @@ inputs:
   warningOnly:
     description: "Setting this to true makes the action return a warning instead of failing."
     required: false
-    default: "0"
+    default: "false"
 runs:
   using: "node16"
   main: "dist/index.js"
