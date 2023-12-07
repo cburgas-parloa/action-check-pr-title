@@ -52,6 +52,15 @@ steps:
       helpMessage: "Example: 'feat: example of title'"
 ```
 
+### Change exit code to warning
+
+```yaml
+steps:
+  - uses: Slashgear/action-check-pr-title@v4.3.0
+    with:
+      warningOnly: "true"
+```
+
 ## Author
 
 👤 **Slashgear**

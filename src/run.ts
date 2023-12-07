@@ -1,4 +1,4 @@
-import { info, setFailed, getInput } from "@actions/core";
+import { info, setFailed, getInput, warning } from "@actions/core";
 import { Context } from "@actions/github/lib/context";
 
 export const run = (context: Context) => {
@@ -14,6 +14,7 @@ export const run = (context: Context) => {
 
   info(`Pull Request title: "${pullRequestTitle}"`);
 
+  const warningOnly = getInput("warningOnly") === "true";
   const regex = RegExp(getInput("regexp"), getInput("flags"));
   const helpMessage = getInput("helpMessage");
   if (!regex.test(pullRequestTitle)) {
@@ -21,6 +22,11 @@ export const run = (context: Context) => {
 `;
     if (helpMessage) {
       message = message.concat(helpMessage);
+    }
+
+    if (warningOnly) {
+      warning(message);
+      return;
     }
 
     setFailed(message);
